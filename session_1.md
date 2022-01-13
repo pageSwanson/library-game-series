@@ -61,10 +61,15 @@
 ### Getting [started](https://docs.godotengine.org/en/stable/getting_started/step_by_step/index.html)
 - Godot provides good documentation for getting setup and creating a project
 - A 3D workspace is open by default
-  - this series will produce a 2D game
+  - this series will produce a 2D game, switch to 2D with the center top control
 - Once inside the editor
   - menus to the left
   - workspaces at the top
   - playtest controls at the top right
+- You can create a 2D scene
+  - scenes consist of nodes, associated scripts, and make up the base ideas in your game
+  - create a scene and save - this will save our project so far
+- Discuss scenes in Godot next time, and create one
 
 ### Game concept
+- if you have any ideas, submit them to me at coder@nhfpl.org
