@@ -1,2 +1,2 @@
 ## sprites sourced from
-- [pixfinity](https://pixfinity.itch.io/scificharacter3)
+- [Kenney](https://kenney.nl/assets/micro-roguelike)
