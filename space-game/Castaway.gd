@@ -24,9 +24,13 @@ func _process(delta):
 		velocity.x = velocity.x + 1
 
 	if velocity.length() > 0:
-		$AnimatedSprite.play("walk")
+		if velocity.y > 0:
+			$AnimatedSprite.play("down")
+		elif velocity.y < 0:
+			$AnimatedSprite.play("up")
 		# if the x component of the velocity is non-zero
-		if velocity.x != 0:
+		elif velocity.x != 0:
+			$AnimatedSprite.play("right")
 			$AnimatedSprite.flip_h = velocity.x < 0 # the sprite should flip if true - by default, this is false (don't flip)
 	else:
 		$AnimatedSprite.play("idle")
