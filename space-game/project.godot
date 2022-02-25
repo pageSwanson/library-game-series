@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="space-game"
-run/main_scene="res://Castaway.tscn"
+run/main_scene="res://Planet_0.tscn"
 config/icon="res://icon.png"
 
 [display]
