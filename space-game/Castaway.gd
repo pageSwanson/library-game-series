@@ -2,8 +2,8 @@ extends KinematicBody2D
 
 
 # Declare member variables here. Examples:
-export var speed = 200 # how fast the character moves across screen (pixels / s)
-var game_window_size
+export var speed : int = 200 # how fast the character moves across screen (pixels / s)
+var game_window_size : Vector2
 
 func set_position(input_position : Vector2) -> void:
 	position = input_position
@@ -32,7 +32,5 @@ func _physics_process(delta : float) -> void:
 		elif velocity.x != 0:
 			$AnimatedSprite.play("right")
 			$AnimatedSprite.flip_h = velocity.x < 0 # the sprite should flip if true - by default, this is false (don't flip)
-	else:
-		$AnimatedSprite.play("idle")
 	
 	move_and_slide(velocity * speed)
