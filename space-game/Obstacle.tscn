@@ -6,6 +6,7 @@
 extents = Vector2( 11, 11 )
 
 [node name="Obstacle" type="KinematicBody2D"]
+collision_layer = 2
 __meta__ = {
 "_edit_group_": true
 }

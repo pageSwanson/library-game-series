@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Obstacle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://SlimeObstacle.gd" type="Script" id=2]
+[ext_resource path="res://art/slime/tile_0126.png" type="Texture" id=3]
+
+[node name="SlimeObstacle" instance=ExtResource( 1 )]
+position = Vector2( 201, 158 )
+collision_layer = 4
+script = ExtResource( 2 )
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 3 )
