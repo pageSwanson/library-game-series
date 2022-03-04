@@ -1,9 +1,18 @@
 extends KinematicBody2D
 
+signal hit
 
 # Declare member variables here. Examples:
 export var speed : int = 200 # how fast the character moves across screen (pixels / s)
 var game_window_size : Vector2
+
+func initialize(input_position : Vector2) -> void:
+	set_position(input_position)
+	show()
+	enable_collisions()
+
+func enable_collisions() -> void:
+	$CollisionShape2D.set_deferred("disabled", false)
 
 func set_position(input_position : Vector2) -> void:
 	position = input_position
@@ -34,3 +43,9 @@ func _physics_process(delta : float) -> void:
 			$AnimatedSprite.flip_h = velocity.x < 0 # the sprite should flip if true - by default, this is false (don't flip)
 	
 	move_and_slide(velocity * speed)
+	for i in get_slide_count():
+		var collision_layer : int = get_slide_collision(i).collider.get_collision_layer()
+		if collision_layer == 0b100:
+			hide()
+			$CollisionShape2D.set_deferred("disabled", true)
+			emit_signal("hit")
