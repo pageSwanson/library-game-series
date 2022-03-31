@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 signal hit
 
-# Declare member variables here. Examples:
+# Declare member variables here
 export var speed : int = 200 # how fast the character moves across screen (pixels / s)
 var game_window_size : Vector2
 
@@ -22,7 +22,7 @@ func _ready():
 	game_window_size = get_viewport_rect().size
 
 func _physics_process(delta : float) -> void:
-	var velocity = Vector2(0, 0)
+	var velocity : = Vector2(0, 0)
 	if Input.is_action_pressed("move_down"):
 		velocity.y = velocity.y + 1
 	elif Input.is_action_pressed("move_left"):
@@ -44,8 +44,11 @@ func _physics_process(delta : float) -> void:
 	
 	move_and_slide(velocity * speed)
 	for i in get_slide_count():
-		var collision_layer : int = get_slide_collision(i).collider.get_collision_layer()
+		var collided_with : = get_slide_collision(i).collider
+		var collision_layer : int = collided_with.get_collision_layer()
 		if collision_layer == 0b100:
 			hide()
 			$CollisionShape2D.set_deferred("disabled", true)
 			emit_signal("hit")
+		if collision_layer == 0b1000:
+			collided_with.push(velocity * (speed / 2))
