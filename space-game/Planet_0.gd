@@ -13,5 +13,5 @@ func initialize() -> void:
 func _ready():
 	initialize()
 
-func _on_castaway_hit():
+func _on_Castaway_hit():
 	initialize()
