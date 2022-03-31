@@ -7,7 +7,7 @@ extends Node
 
 func initialize() -> void:
 	$Castaway.initialize($StartPosition.position)
-	$MovableObstacle.set_position($MoveableObstaclePosition.position)
+	$MovableObstacle.set_position($MovableObstaclePosition.position)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

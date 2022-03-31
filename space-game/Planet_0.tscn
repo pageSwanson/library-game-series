@@ -248,7 +248,7 @@ collision_mask = 1
 [node name="MovableObstacle" parent="." instance=ExtResource( 13 )]
 position = Vector2( 110, 176 )
 
-[node name="MoveableObstaclePosition" type="Position2D" parent="."]
+[node name="MovableObstaclePosition" type="Position2D" parent="."]
 position = Vector2( 110, 176 )
 
 [connection signal="hit" from="Castaway" to="." method="_on_Castaway_hit"]
