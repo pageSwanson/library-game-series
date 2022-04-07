@@ -15,11 +15,6 @@
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "movable",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 1 ) ],
 "loop": false,
 "name": "default",
@@ -29,6 +24,11 @@ animations = [ {
 "loop": true,
 "name": "slime",
 "speed": 2.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "movable",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=1]

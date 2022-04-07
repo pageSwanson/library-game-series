@@ -1,9 +1,5 @@
 extends Node
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var movable_obstacle_position_1 : Vector2 = Vector2(198, 248)
 var movable_obstacle_position_2 : Vector2 = Vector2(199, 176)
 var movable_obstacle_position_3 : Vector2 = Vector2(254, 248)
@@ -16,13 +12,16 @@ func initialize() -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	initialize()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
+	$Splash.start_game()
 
 func _on_Castaway_hit():
+	$Splash.retry_game()
+
+func _on_Objective_reached():
+	$Castaway.disable()
+	# wait some time to splash and close the game
+	yield(get_tree().create_timer(2), "timeout")
+	$Splash.end_game()
+
+func _on_Splash_game_start():
 	initialize()

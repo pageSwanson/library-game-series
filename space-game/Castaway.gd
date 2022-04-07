@@ -11,6 +11,10 @@ func initialize(input_position : Vector2) -> void:
 	show()
 	enable_collisions()
 
+func disable() -> void:
+	hide()
+	$CollisionShape2D.set_deferred("disabled", true)
+
 func enable_collisions() -> void:
 	$CollisionShape2D.set_deferred("disabled", false)
 
