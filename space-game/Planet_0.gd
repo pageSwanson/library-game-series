@@ -16,13 +16,23 @@ func initialize() -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	initialize()
+	$Splash.start_game()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 
-
 func _on_Castaway_hit():
+	$Splash.retry_game()
+
+func _on_Objective_reached():
+	$Castaway.disable()
+	# use a quick timer and
+	# wait before splash and close the game
+	yield(get_tree().create_timer(2), "timeout")
+	# the game is completed
+	$Splash.end_game()
+
+func _on_Splash_game_start():
 	initialize()

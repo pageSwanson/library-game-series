@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Castaway.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Obstacle.tscn" type="PackedScene" id=2]
@@ -13,6 +13,8 @@
 [ext_resource path="res://art/tile_0160.png" type="Texture" id=11]
 [ext_resource path="res://SlimeObstacle.tscn" type="PackedScene" id=12]
 [ext_resource path="res://MovableObstacle.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Objective.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Splash.tscn" type="PackedScene" id=15]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 8, 0, 8, 8, 0, 8 )
@@ -210,8 +212,10 @@ points = PoolVector2Array( 0, 0, 8, 0, 8, 8, 0, 8 )
 [node name="Planet_0" type="Node"]
 script = ExtResource( 3 )
 
+[node name="Splash" parent="." instance=ExtResource( 15 )]
+
 [node name="Castaway" parent="." instance=ExtResource( 1 )]
-position = Vector2( 349, 91 )
+position = Vector2( 69, 340 )
 
 [node name="StartPosition" type="Position2D" parent="."]
 position = Vector2( 69, 339 )
@@ -253,9 +257,14 @@ collision_mask = 1
 position = Vector2( 198, 248 )
 
 [node name="MovableObstacle2" parent="." instance=ExtResource( 13 )]
-position = Vector2( 199, 176 )
+position = Vector2( 201, 162 )
 
 [node name="MovableObstacle3" parent="." instance=ExtResource( 13 )]
 position = Vector2( 254, 248 )
 
+[node name="Objective" parent="." instance=ExtResource( 14 )]
+position = Vector2( 170, 175 )
+
+[connection signal="game_start" from="Splash" to="." method="_on_Splash_game_start"]
 [connection signal="hit" from="Castaway" to="." method="_on_Castaway_hit"]
+[connection signal="reached" from="Objective" to="." method="_on_Objective_reached"]

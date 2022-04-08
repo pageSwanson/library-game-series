@@ -56,6 +56,7 @@ move_down={
 2d_physics/layer_2="Obstacle"
 2d_physics/layer_3="Slime"
 2d_physics/layer_4="Moveable"
+2d_physics/layer_5="Objective"
 
 [physics]
 
